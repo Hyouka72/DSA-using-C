@@ -1,30 +1,28 @@
-#include<iostream> //stick 3 but disk has size  as  demanded
+#include <iostream>
 using namespace std;
-int TOH(int, int, int, int);
-int main(){
+
+void TOH(int n, char source, char helper, char target);
+
+int main() {
     int nodisk;
-    cout<<"Enter the number of disk"<<endl<<"\n=>";
-    cin>>nodisk;
-    //A=1;
-    //B=2;
-    //C=3;
-    //D=4;
-    int A=1,B=2,C=3;
-    cout<<"The minumum steps are"<<TOH(nodisk,A,B,C);
+    cout << "Enter the number of disks: ";
+    cin >> nodisk;
+
+    char A = 'A', B = 'B', C = 'C';                                             // Representing the three rods
+    cout << "The steps to solve the Tower of Hanoi are:\n";
+    TOH(nodisk, A, B, C);
+    cout << "The minimum number of steps are: " << (1 << nodisk) - 1 << endl; // by shifting 1 with n we get 2^n
 
     return 0;
 }
 
-int TOH(int n, int a, int b, int c){
-    int i;
-    while (n>1)
-    {
-            TOH(n-1,a,c,b);
-            TOH(n-1,b,a,c);
-        i++;
+void TOH(int n, char source, char helper, char target) {
+    if (n == 1) {
+        cout << "Move disk " << n << " from rod " << source << " to rod " << target << endl;        // to show the moves at the end of recursion
+        return;
     }
-    return i;
+    TOH(n - 1, source, target, helper);                                     // when reduced by 1 the target and helper get swapped
+    cout << "Move disk " << n << " from rod " << source << " to rod " << target << endl; // to print the current value of the function
+     TOH(n - 1, helper, source, target);                                    //when reduced by 1 the source and helper get swapped
 }
-// set no of disk
-// set there value;
-// no need ot set stick stick will be always 3
+ 

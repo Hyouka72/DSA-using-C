@@ -5,17 +5,21 @@ using namespace std;
 int fact(int);
 int fib(int);
 void TOH(int n, char source, char helper, char target);
-
+int GCD(int ,int );
+int counter=1;
 int main() {
-    int choice;
-    cout << "Menu of Recursion\n";
+    cout<<"Programmer -Khewang Thing"<<endl;
+     int choice;
+    while (true)
+    { cout << "Menu of Recursion\n";
     cout << "1. Factorial\n";
     cout << "2. Fibonacci Series\n";
     cout << "3. Tower of Hanoi\n";
+    cout << "4. GCD\n";
+    cout << "choose anyother option to exit\n";
     cout << "Enter your choice: ";
     cin >> choice;
-
-    switch (choice) {
+        switch (choice) {
         case 1: {
             // Factorial
             int n;
@@ -60,10 +64,24 @@ int main() {
             }
             break;
         }
+        case 4:{
+            //GCD
+            int x,y;
+            cout<<"Enter (x,y) to find GCD"<<endl;
+            cout<<"x = ";
+            cin>>x;
+            cout<<"y = ";
+            cin>>y;
+            cout<<"The GCD value of ("<<x<<","<<y<<")"<<" = "<<GCD(x,y)<<endl;
+            break;
+        }
         default:
             cout << "Invalid choice. Please select a valid option from the menu." << endl;
+            return false;
             break;
     }
+    }
+
     return 0;
 }
 
@@ -89,11 +107,23 @@ int fib(int n) {
 
 // Recursive function to solve Tower of Hanoi
 void TOH(int n, char source, char helper, char target) {
+    
     if (n == 1) {
-        cout << "Move disk 1 from rod " << source << " to rod " << target << endl;
+        cout <<counter<< ") Move disk 1 from rod " << source << " to rod " << target << endl;
+        counter++;
         return;
     }
     TOH(n - 1, source, target, helper);
-    cout << "Move disk " << n << " from rod " << source << " to rod " << target << endl;
+    cout<<counter<< ") Move disk " << n << " from rod " << source << " to rod " << target << endl;
+    counter++;
     TOH(n - 1, helper, source, target);
+}
+
+int GCD(int a,int b){
+    if(b==0){
+        return a;
+    }
+    else{
+        return GCD(b,a%b);
+    }
 }

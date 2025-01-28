@@ -16,7 +16,6 @@ queue(int size)         //construct || initialize of queue
     rear = -1;
     n=size;
 }
-
 void enqueue(int x){
       if(rear == n-1){              //could have compare with n only but as rear start with -1 so we had to compare with n-1
         cout<<"The Queue is full"<<endl;
@@ -30,7 +29,6 @@ void enqueue(int x){
         }
     }   
 }
-
 void dequeue(){
     if(front==-1 || front>rear){
         cout<<"The Queue is Empty"<<endl;
@@ -40,7 +38,6 @@ void dequeue(){
     }
     
 }
-
 void Display(){
     if(front==-1 || front>rear){
         cout<<"The Queue is Empty"<<endl;
@@ -52,9 +49,7 @@ void Display(){
         cout<<"=>"<<arr[i]<<endl;
     }
     }
-    
-    
-}
+    }
 
 };
 
@@ -62,12 +57,14 @@ void Display(){
 int main(){
     int size;
     int in,n;
+    cout<<"Programmer -Khewang Thing"<<endl;
     cout << "Basic Operation of Stack" << endl;
     cout << "Enter the size of stack\n=>";
     cin >> size;
     queue q(size);
         while (true)
         {
+        cout<<"Programmer -Khewang Thing"<<endl;
         cout << "\nEnter your choice\n 1 for enqueue\n 2 for dequeue\n 3 for display\n 4 for exit\n\n=>";  //Menu for the operation
         cin >> n;
         

@@ -1,6 +1,5 @@
 #include <iostream>
 using namespace std;
-
 // Function prototypes
 int fact(int);
 int fib(int);
@@ -11,15 +10,16 @@ int main() {
     cout<<"Programmer -Khewang Thing"<<endl;
      int choice;
     while (true)
-    { cout << "Menu of Recursion\n";
+    { cout << "\n\n\nMenu of Recursion\n";
     cout << "1. Factorial\n";
     cout << "2. Fibonacci Series\n";
     cout << "3. Tower of Hanoi\n";
     cout << "4. GCD\n";
-    cout << "choose anyother option to exit\n";
+    cout << "choose any other option to exit\n";
     cout << "Enter your choice: ";
     cin >> choice;
-        switch (choice) {
+        switch (choice) 
+        {
         case 1: {
             // Factorial
             int n;
@@ -31,7 +31,7 @@ int main() {
                 cout << "The factorial of " << n << " is " << fact(n) << endl;
             }
             break;
-        }
+                }
         case 2: {
             // Fibonacci
             int n;
@@ -47,7 +47,7 @@ int main() {
                 cout << endl;
             }
             break;
-        }
+                }
         case 3: {
             // Tower of Hanoi
             int nodisk;
@@ -63,7 +63,7 @@ int main() {
                 cout << "The minimum number of steps are: " << (1 << nodisk) - 1 << endl;
             }
             break;
-        }
+                }
         case 4:{
             //GCD
             int x,y;
@@ -74,17 +74,15 @@ int main() {
             cin>>y;
             cout<<"The GCD value of ("<<x<<","<<y<<")"<<" = "<<GCD(x,y)<<endl;
             break;
-        }
+                }
         default:
             cout << "Invalid choice. Please select a valid option from the menu." << endl;
             return false;
             break;
+        }
     }
-    }
-
     return 0;
 }
-
 // Recursive function to calculate factorial
 int fact(int n) {
     if (n == 0 || n == 1) {
@@ -93,7 +91,6 @@ int fact(int n) {
         return n * fact(n - 1);
     }
 }
-
 // Recursive function to calculate Fibonacci numbers
 int fib(int n) {
     if (n == 0) {
@@ -104,7 +101,6 @@ int fib(int n) {
         return fib(n - 1) + fib(n - 2);
     }
 }
-
 // Recursive function to solve Tower of Hanoi
 void TOH(int n, char source, char helper, char target) {
     
@@ -118,7 +114,7 @@ void TOH(int n, char source, char helper, char target) {
     counter++;
     TOH(n - 1, helper, source, target);
 }
-
+//Recusive function to solve GCD
 int GCD(int a,int b){
     if(b==0){
         return a;
